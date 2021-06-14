@@ -5,7 +5,7 @@ import 'package:sample/modules/splashscreen/view/splashscreen_view.dart';
 class AppPages {
   static var list = [
     GetPage(
-      name: "/splashscreen",
+      name: "/",
       page: () => SplashScreenView(),
     ),
     GetPage(

@@ -8,10 +8,10 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    callGetLogin();
+    _callGetLogin();
   }
 
-  void callGetLogin() async {
+  void _callGetLogin() async {
     var result = await LoginApi.getLogin();
     loginModel.assignAll(result);
   }

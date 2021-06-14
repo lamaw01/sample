@@ -4,6 +4,7 @@ import 'package:sample/modules/splashscreen/controller/splashscreen_controller.d
 
 class SplashScreenView extends StatelessWidget {
   SplashScreenView({Key? key}) : super(key: key);
+
   final controller = Get.put(SplashScreenController());
 
   @override
