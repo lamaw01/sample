@@ -27,12 +27,11 @@ class SplashScreenController extends GetxController {
       if (!status.canUpdate) {
         _newVersionDialog();
       } else {
-        Future.delayed(
-            Duration(milliseconds: 200), () => Get.offNamed('/login'));
+        Get.offNamed('/login');
       }
     } catch (err) {
       print('$err');
-      Future.delayed(Duration(milliseconds: 200), () => Get.offNamed('/login'));
+      Get.offNamed('/login');
     }
   }
 
@@ -72,9 +71,7 @@ class SplashScreenController extends GetxController {
                       fontSize: 13.sp,
                     ),
                   ),
-                  onPressed: () {
-                    _launchToStore();
-                  },
+                  onPressed: _launchToStore,
                 ),
               ],
             )
@@ -101,9 +98,7 @@ class SplashScreenController extends GetxController {
                       fontSize: 13.sp,
                     ),
                   ),
-                  onPressed: () {
-                    _launchToStore();
-                  },
+                  onPressed: _launchToStore,
                 ),
               ],
             ),
