@@ -19,8 +19,8 @@ class LoginApi {
         loginModel = loginModelFromJson(response.body);
         return loginModel;
       }
-    } catch (e) {
-      print('getLogin Error $e');
+    } catch (err) {
+      print('getLogin Error $err');
     }
 
     return loginModel;
