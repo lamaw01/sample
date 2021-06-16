@@ -17,10 +17,11 @@ class LoginApi {
 
       if (response.statusCode == 200) {
         loginModel = loginModelFromJson(response.body);
-        return loginModel;
+        // return loginModel;
       }
     } catch (err) {
       print('getLogin Error $err');
+      rethrow;
     }
 
     return loginModel;
