@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -11,6 +13,7 @@ import 'theme/app_theme.dart';
 void main() async {
   await GetStorage.init('appstorage');
   WidgetsFlutterBinding.ensureInitialized();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   _initStorageService();
   _initLocationService();
   runApp(MyApp());
@@ -22,6 +25,12 @@ Future<void> _initStorageService() async {
 
 Future<void> _initLocationService() async {
   await Get.putAsync<LocationService>(() async => LocationService());
+}
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+
+  print("Handling a background message: ${message.messageId}");
 }
 
 class MyApp extends StatelessWidget {

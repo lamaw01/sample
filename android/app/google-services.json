@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "661424065694",
+    "firebase_url": "https://foodtrip-43dda.firebaseio.com",
+    "project_id": "foodtrip-43dda",
+    "storage_bucket": "foodtrip-43dda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661424065694:android:5dc582bf7977aaf6747f8f",
+        "android_client_info": {
+          "package_name": "com.e2e.bigbys"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661424065694-hsr05vf8gmg7l59nm4otj1ioatamoeps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGP2VCsx1b9YHJ5p_lMaqX81uehaYZ8t0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "661424065694-hsr05vf8gmg7l59nm4otj1ioatamoeps.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "661424065694-4cmj795lp46olvpu0o9h1gmpbmujvaf2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.e2e.bigbys"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
