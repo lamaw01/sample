@@ -17,7 +17,6 @@ class LoginApi {
       }
     } catch (err) {
       print('getLogin Error $err');
-      rethrow;
     }
     return loginModel;
   }
