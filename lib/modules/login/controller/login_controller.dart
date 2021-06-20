@@ -20,33 +20,27 @@ class LoginController extends GetxController {
     _callGetObjectLogin();
   }
 
-  // ignore: unused_element
   void _callGetLogin() async {
-    if (!loadingLogin.value) loadingLogin(true);
-    if (errorLogin.value) errorLogin(false);
+    try {
+      List<LoginModel> result = await LoginApi.getLogin();
 
-    List<LoginModel> result = await LoginApi.getLogin();
-
-    if (result.length > 0) {
       loginModel.assignAll(result);
-    } else {
-      errorLogin(true);
+    } catch (error) {
+      if (error == true) errorLogin(true);
+    } finally {
+      loadingLogin(false);
     }
-    loadingLogin(false);
   }
 
-  // ignore: unused_element
   void _callGetObjectLogin() async {
-    if (!loadingloginObject.value) loadingloginObject(true);
-    if (errorloginObject.value) errorloginObject(false);
+    try {
+      LoginObject result = await LoginObjectApi.getObjectLogin();
 
-    LoginObject result = await LoginObjectApi.getObjectLogin();
-
-    if (result.hasErrors == false) {
       loginObject.value = result;
-    } else {
-      errorloginObject(true);
+    } catch (error) {
+      if (error == true) errorloginObject(true);
+    } finally {
+      loadingloginObject(false);
     }
-    loadingloginObject(false);
   }
 }

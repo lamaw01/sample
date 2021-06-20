@@ -22,7 +22,7 @@ dependencies:
   new_version: ^0.2.0
   launch_review: ^3.0.1
   google_fonts: ^2.1.0
-  firebase_messaging: ^9.1.1
+  firebase_messaging: ^10.0.2
   firebase_core: ^1.0.3
   firebase_analytics: ^8.1.0
 

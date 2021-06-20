@@ -4,20 +4,17 @@ import 'package:sample/modules/login/model/login_model.dart';
 
 class LoginApi {
   static Future<List<LoginModel>> getLogin() async {
-    List<LoginModel> loginModel = [];
     try {
       var response = await http
           .get(Uri.parse('https://jsonplaceholder.typicode.com/users'))
           .timeout(const Duration(milliseconds: 2000), onTimeout: () {
-        throw TimeoutException("getLogin timeout.");
+        throw TimeoutException("timeout");
       });
 
-      if (response.statusCode == 200) {
-        loginModel = loginModelFromJson(response.body);
-      }
-    } catch (err) {
-      print('getLogin Error $err');
+      return loginModelFromJson(response.body);
+    } catch (error) {
+      print('getLogin $error');
+      return Future.error(true);
     }
-    return loginModel;
   }
 }

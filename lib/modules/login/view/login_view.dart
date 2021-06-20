@@ -17,13 +17,12 @@ class LoginView extends StatelessWidget {
       );
     }
 
-    // ignore: unused_element
     Widget _listLogin() {
       return Obx(() {
         if (controller.loadingLogin.value) {
           return GlobalLoading();
         } else if (controller.errorLogin.value) {
-          return ErrorView();
+          return ErrorView(message: 'Error getting List');
         } else {
           return ListView.separated(
             separatorBuilder: (_, __) => Divider(),
@@ -38,19 +37,17 @@ class LoginView extends StatelessWidget {
       });
     }
 
-    // ignore: unused_element
     Widget _listObjectLogin() {
       return Obx(() {
         if (controller.loadingloginObject.value) {
           return GlobalLoading();
         } else if (controller.errorloginObject.value) {
-          return ErrorView();
+          return ErrorView(message: 'Error getting Object');
         } else {
           return ListTile(
             leading: Text(controller.loginObject.value.id.toString()),
             title: Text(controller.loginObject.value.email.toString()),
             subtitle: Text(controller.loginObject.value.name.toString()),
-            trailing: Text(controller.loginObject.value.hasErrors.toString()),
           );
         }
       });

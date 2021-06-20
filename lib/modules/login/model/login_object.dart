@@ -19,7 +19,6 @@ class LoginObject {
     this.phone,
     this.website,
     this.company,
-    this.hasErrors = false,
   });
 
   int? id;
@@ -30,7 +29,6 @@ class LoginObject {
   String? phone;
   String? website;
   Company? company;
-  bool hasErrors;
 
   factory LoginObject.fromJson(Map<String, dynamic> json) => LoginObject(
         id: json["id"],
