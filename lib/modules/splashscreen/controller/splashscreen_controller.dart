@@ -13,6 +13,7 @@ class SplashScreenController extends GetxController {
 
   RxString storeLink = ''.obs;
 
+  // ignore: unused_element
   void _getAppVersion() async {
     try {
       final VersionStatus? status = await newVersion.getVersionStatus();

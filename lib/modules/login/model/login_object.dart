@@ -1,13 +1,16 @@
+// To parse this JSON data, do
+//
+//     final loginObject = loginObjectFromJson(jsonString);
+
 import 'dart:convert';
 
-List<LoginModel> loginModelFromJson(String str) =>
-    List<LoginModel>.from(json.decode(str).map((x) => LoginModel.fromJson(x)));
+LoginObject loginObjectFromJson(String str) =>
+    LoginObject.fromJson(json.decode(str));
 
-String loginModelToJson(List<LoginModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String loginObjectToJson(LoginObject data) => json.encode(data.toJson());
 
-class LoginModel {
-  LoginModel({
+class LoginObject {
+  LoginObject({
     this.id,
     this.name,
     this.username,
@@ -16,6 +19,7 @@ class LoginModel {
     this.phone,
     this.website,
     this.company,
+    this.hasErrors = false,
   });
 
   int? id;
@@ -26,8 +30,9 @@ class LoginModel {
   String? phone;
   String? website;
   Company? company;
+  bool hasErrors;
 
-  factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
+  factory LoginObject.fromJson(Map<String, dynamic> json) => LoginObject(
         id: json["id"],
         name: json["name"],
         username: json["username"],
@@ -52,18 +57,18 @@ class LoginModel {
 
 class Address {
   Address({
-    required this.street,
-    required this.suite,
-    required this.city,
-    required this.zipcode,
-    required this.geo,
+    this.street,
+    this.suite,
+    this.city,
+    this.zipcode,
+    this.geo,
   });
 
-  String street;
-  String suite;
-  String city;
-  String zipcode;
-  Geo geo;
+  String? street;
+  String? suite;
+  String? city;
+  String? zipcode;
+  Geo? geo;
 
   factory Address.fromJson(Map<String, dynamic> json) => Address(
         street: json["street"],
@@ -78,18 +83,18 @@ class Address {
         "suite": suite,
         "city": city,
         "zipcode": zipcode,
-        "geo": geo.toJson(),
+        "geo": geo!.toJson(),
       };
 }
 
 class Geo {
   Geo({
-    required this.lat,
-    required this.lng,
+    this.lat,
+    this.lng,
   });
 
-  String lat;
-  String lng;
+  String? lat;
+  String? lng;
 
   factory Geo.fromJson(Map<String, dynamic> json) => Geo(
         lat: json["lat"],
@@ -104,14 +109,14 @@ class Geo {
 
 class Company {
   Company({
-    required this.name,
-    required this.catchPhrase,
-    required this.bs,
+    this.name,
+    this.catchPhrase,
+    this.bs,
   });
 
-  String name;
-  String catchPhrase;
-  String bs;
+  String? name;
+  String? catchPhrase;
+  String? bs;
 
   factory Company.fromJson(Map<String, dynamic> json) => Company(
         name: json["name"],
