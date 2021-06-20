@@ -39,7 +39,9 @@ class LoginController extends GetxController {
   void _callGetObjectLogin() async {
     if (!loadingloginObject.value) loadingloginObject(true);
     if (errorloginObject.value) errorloginObject(false);
+
     LoginObject result = await LoginObjectApi.getObjectLogin();
+
     if (result.hasErrors == false) {
       loginObject.value = result;
     } else {
