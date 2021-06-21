@@ -43,7 +43,11 @@ class SplashScreenController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _getAppVersion();
+    Future.delayed(Duration(seconds: 3),(){
+       Get.offNamed('/login');
+    });
+   
+    // _getAppVersion();
   }
 
   _newVersionDialog() {

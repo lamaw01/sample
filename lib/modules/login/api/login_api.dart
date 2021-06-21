@@ -7,7 +7,7 @@ class LoginApi {
     try {
       var response = await http
           .get(Uri.parse('https://jsonplaceholder.typicode.com/users'))
-          .timeout(const Duration(milliseconds: 2000), onTimeout: () {
+          .timeout(const Duration(milliseconds: 10000), onTimeout: () {
         throw TimeoutException("timeout");
       });
 

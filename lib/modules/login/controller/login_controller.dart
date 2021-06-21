@@ -13,6 +13,10 @@ class LoginController extends GetxController {
   RxBool loadingloginObject = true.obs;
   RxBool errorloginObject = false.obs;
 
+  RxDouble total = 0.00.obs;
+
+  RxString message = "".obs;
+
   @override
   void onInit() {
     super.onInit();

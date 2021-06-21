@@ -62,10 +62,10 @@ class LoginView extends StatelessWidget {
             flex: 1,
             child: _listLogin(),
           ),
-          Flexible(
-            flex: 1,
-            child: _listObjectLogin(),
-          ),
+          // Flexible(
+          //   flex: 1,
+          //   child: _listObjectLogin(),
+          // ),
         ],
       ),
     );
