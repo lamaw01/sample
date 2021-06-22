@@ -13,6 +13,8 @@ class LoginController extends GetxController {
   RxBool loadingloginObject = true.obs;
   RxBool errorloginObject = false.obs;
 
+  Stopwatch stopwatch = Stopwatch();
+
   RxDouble total = 0.00.obs;
 
   RxString message = "".obs;
@@ -22,6 +24,13 @@ class LoginController extends GetxController {
     super.onInit();
     _callGetLogin();
     _callGetObjectLogin();
+    print('LoginController init');
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+    print('LoginController ready');
   }
 
   void _callGetLogin() async {

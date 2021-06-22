@@ -7,10 +7,10 @@ import 'package:sample/modules/login/controller/login_controller.dart';
 class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
 
-  final controller = Get.put(LoginController());
-
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
+
     AppBar _appBar() {
       return AppBar(
         title: Text('Login'),
@@ -62,10 +62,10 @@ class LoginView extends StatelessWidget {
             flex: 1,
             child: _listLogin(),
           ),
-          // Flexible(
-          //   flex: 1,
-          //   child: _listObjectLogin(),
-          // ),
+          Flexible(
+            flex: 1,
+            child: _listObjectLogin(),
+          ),
         ],
       ),
     );
