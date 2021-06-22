@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sample/core/services/location_service.dart';
 import 'package:sample/global/configs/app_colors.dart';
@@ -23,12 +24,18 @@ class BottomNavWidget extends StatelessWidget {
     AppBar(
       title: Text('Home'),
       actions: [
+        SvgPicture.asset(
+          'assets/icons/alarm.svg',
+          semanticsLabel: 'Acme Logo',
+          width: 20,
+          height: 20,
+        ),
         IconButton(
           onPressed: () {},
           icon: Icon(
             Icons.refresh,
           ),
-        )
+        ),
       ],
     ),
     AppBar(
@@ -132,7 +139,7 @@ class BottomNavWidget extends StatelessWidget {
             currentIndex: controller.tabIndex.value,
             // showSelectedLabels: false,
             // showUnselectedLabels: false,
-            type: BottomNavigationBarType.fixed,
+            type: BottomNavigationBarType.shifting,
             backgroundColor: Colors.white,
             elevation: 1,
             items: _buttonList,
