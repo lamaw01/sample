@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sample/core/services/location_service.dart';
 import 'package:sample/global/configs/app_colors.dart';
 import 'package:sample/global/shared/coloredsafeare.dart';
 import 'package:sample/modules/account/view/account_view.dart';
@@ -18,7 +19,7 @@ class BottomNavWidget extends StatelessWidget {
     AccountView(),
   ];
 
-  final List<AppBar> appBars = [
+  final List<AppBar> _appBars = [
     AppBar(
       title: Text('Home'),
       actions: [
@@ -45,10 +46,18 @@ class BottomNavWidget extends StatelessWidget {
         isScrollable: false,
         tabs: [
           Tab(
-            child: Text('First'),
+            child: Obx(
+              () => Text(
+                'First ${LocationService.instance.position.value.latitude}',
+              ),
+            ),
           ),
           Tab(
-            child: Text('Second'),
+            child: Obx(
+              () => Text(
+                'Second ${LocationService.instance.position.value.longitude}',
+              ),
+            ),
           ),
         ],
       ),
@@ -113,7 +122,7 @@ class BottomNavWidget extends StatelessWidget {
       () => ColoredSafeArea(
         color: AppColors.mainColor,
         child: Scaffold(
-          appBar: appBars[controller.tabIndex.value],
+          appBar: _appBars[controller.tabIndex.value],
           drawer: _drawer(),
           body: _bodyList[controller.tabIndex.value],
           bottomNavigationBar: BottomNavigationBar(

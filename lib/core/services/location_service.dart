@@ -4,22 +4,42 @@ import 'package:get/get.dart';
 class LocationService extends GetxService {
   static LocationService instance = Get.find();
 
+  Rx<Position> position = Position(
+    altitude: 0.0,
+    heading: 0.0,
+    timestamp: DateTime.now(),
+    latitude: 0.0,
+    longitude: 0.0,
+    speed: 0.0,
+    speedAccuracy: 0.0,
+    accuracy: 0.0,
+  ).obs;
+  late bool serviceEnabled;
+
   @override
   void onInit() {
     super.onInit();
     _determinePosition();
   }
 
-  Future<Position> _determinePosition() async {
-    bool serviceEnabled;
+  //get user location
+  void _getLocation() async {
+    try {
+      position.value = await Geolocator.getCurrentPosition();
+      print(
+        'lat ${position.value.latitude} , lng ${position.value.longitude} ',
+      );
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  //check location permission
+  void _determinePosition() async {
     LocationPermission permission;
 
-    // Test if location services are enabled.
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      // Location services are not enabled don't continue
-      // accessing the position and request users of the
-      // App to enable the location services.
       return Future.error('Location services are disabled.');
     }
 
@@ -27,23 +47,14 @@ class LocationService extends GetxService {
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        // Permissions are denied, next time you could try
-        // requesting permissions again (this is also where
-        // Android's shouldShowRequestPermissionRationale
-        // returned true. According to Android guidelines
-        // your App should show an explanatory UI now.
         return Future.error('Location permissions are denied');
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      // Permissions are denied forever, handle appropriately.
       return Future.error(
           'Location permissions are permanently denied, we cannot request permissions.');
     }
-
-    // When we reach here, permissions are granted and we can
-    // continue accessing the position of the device.
-    return await Geolocator.getCurrentPosition();
+    _getLocation();
   }
 }

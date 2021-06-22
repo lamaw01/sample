@@ -15,7 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   _initStorageService();
-  _initLocationService();
+  await _initLocationService();
   runApp(MyApp());
 }
 
