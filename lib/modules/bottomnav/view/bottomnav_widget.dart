@@ -10,13 +10,87 @@ import 'package:sample/modules/map/view/map_view.dart';
 class BottomNavWidget extends StatelessWidget {
   BottomNavWidget({Key? key}) : super(key: key);
 
-  final controller = Get.put(BottomNavController());
+  static final controller = Get.put(BottomNavController());
 
   final List<Widget> _bodyList = [
     LoginView(),
     MapView(),
     AccountView(),
   ];
+
+  final List<AppBar> appBars = [
+    AppBar(
+      title: Text('Home'),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.refresh,
+          ),
+        )
+      ],
+    ),
+    AppBar(
+      title: Text('Map'),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.favorite,
+          ),
+        ),
+      ],
+      bottom: TabBar(
+        controller: controller.tabController,
+        isScrollable: false,
+        tabs: [
+          Tab(
+            child: Text('First'),
+          ),
+          Tab(
+            child: Text('Second'),
+          ),
+        ],
+      ),
+    ),
+    AppBar(
+      title: Text('Account'),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.settings,
+          ),
+        )
+      ],
+    ),
+  ];
+
+  Drawer _drawer() {
+    return Drawer(
+      child: ListView(
+        children: [
+          UserAccountsDrawerHeader(
+            accountName: Text('Botox Yamate'),
+            accountEmail: Text('botox@gmail.com'),
+            currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: FlutterLogo(),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.settings, color: Colors.black),
+            title: Text('Settings'),
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.logout, color: Colors.black),
+            title: Text('Logout'),
+          ),
+        ],
+      ),
+    );
+  }
 
   final List<BottomNavigationBarItem> _buttonList = [
     BottomNavigationBarItem(
@@ -39,10 +113,8 @@ class BottomNavWidget extends StatelessWidget {
       () => ColoredSafeArea(
         color: AppColors.mainColor,
         child: Scaffold(
-          // body: IndexedStack(
-          //   index: controller.tabIndex.value,
-          //   children: _body,
-          // ),
+          appBar: appBars[controller.tabIndex.value],
+          drawer: _drawer(),
           body: _bodyList[controller.tabIndex.value],
           bottomNavigationBar: BottomNavigationBar(
             unselectedItemColor: Colors.grey[800],

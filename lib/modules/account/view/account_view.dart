@@ -11,9 +11,6 @@ class AccountView extends StatelessWidget {
     final controller = Get.put(AccountController());
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Account'),
-      ),
       body: Center(child: Text('Account')),
     );
   }

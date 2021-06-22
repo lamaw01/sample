@@ -11,12 +11,6 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(LoginController());
 
-    AppBar _appBar() {
-      return AppBar(
-        title: Text('Login'),
-      );
-    }
-
     Widget _listLogin() {
       return Obx(() {
         if (controller.loadingLogin.value) {
@@ -54,12 +48,11 @@ class LoginView extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: _appBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Flexible(
-            flex: 1,
+            flex: 3,
             child: _listLogin(),
           ),
           Flexible(
