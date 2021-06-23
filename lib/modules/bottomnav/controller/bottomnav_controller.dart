@@ -12,7 +12,11 @@ class BottomNavController extends GetxController
   @override
   void onInit() {
     super.onInit();
-    tabController = TabController(length: mapTabLength, vsync: this);
+    tabController = TabController(
+      initialIndex: 0,
+      length: mapTabLength,
+      vsync: this,
+    );
   }
 
   void changeTabIndex(int index) {

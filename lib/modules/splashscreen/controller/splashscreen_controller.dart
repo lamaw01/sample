@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:new_version/new_version.dart';
+import 'package:sample/routes/route_names.dart';
+// ignore: unused_import
 import 'package:sizer/sizer.dart';
 
 class SplashScreenController extends GetxController {
@@ -28,11 +30,11 @@ class SplashScreenController extends GetxController {
       if (!status.canUpdate) {
         _newVersionDialog();
       } else {
-        Get.offNamed('/login');
+        Get.offNamed(login);
       }
     } catch (err) {
       print('$err');
-      Get.offNamed('/login');
+      Get.offNamed(login);
     }
   }
 
@@ -44,7 +46,7 @@ class SplashScreenController extends GetxController {
   void onInit() {
     super.onInit();
     Future.delayed(Duration(seconds: 3), () {
-      Get.offNamed('/bottomnav');
+      Get.offNamed(bottomnav);
     });
 
     // _getAppVersion();
@@ -57,14 +59,14 @@ class SplashScreenController extends GetxController {
               title: Text(
                 'Update Available',
                 style: TextStyle(
-                  fontSize: 15.sp,
+                  // fontSize: 15.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               content: Text(
                 'Update app to get the best version!',
                 style: TextStyle(
-                  fontSize: 13.sp,
+                  // fontSize: 13.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -73,8 +75,8 @@ class SplashScreenController extends GetxController {
                   child: Text(
                     "Let's go!",
                     style: TextStyle(
-                      fontSize: 13.sp,
-                    ),
+                        // fontSize: 13.sp,
+                        ),
                   ),
                   onPressed: _launchToStore,
                 ),
@@ -84,14 +86,14 @@ class SplashScreenController extends GetxController {
               title: Text(
                 'Update Available',
                 style: TextStyle(
-                  fontSize: 15.sp,
+                  // fontSize: 15.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               content: Text(
                 'Update app to get the best version!',
                 style: TextStyle(
-                  fontSize: 13.sp,
+                  // fontSize: 13.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -100,8 +102,8 @@ class SplashScreenController extends GetxController {
                   child: Text(
                     "Let's go!",
                     style: TextStyle(
-                      fontSize: 13.sp,
-                    ),
+                        // fontSize: 13.sp,
+                        ),
                   ),
                   onPressed: _launchToStore,
                 ),

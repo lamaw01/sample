@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:sample/routes/route_names.dart';
 import 'package:sizer/sizer.dart';
 
 import 'core/services/location_service.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         locale: const Locale("en", "US"),
         theme: AppTheme.lightTheme,
         getPages: AppPages.list,
-        initialRoute: "/",
+        initialRoute: splashscreen,
       );
     });
   }

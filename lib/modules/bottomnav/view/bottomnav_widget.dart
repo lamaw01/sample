@@ -24,11 +24,13 @@ class BottomNavWidget extends StatelessWidget {
     AppBar(
       title: Text('Home'),
       actions: [
-        SvgPicture.asset(
-          'assets/icons/alarm.svg',
-          semanticsLabel: 'Acme Logo',
-          width: 20,
-          height: 20,
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            'assets/icons/alarm.svg',
+            width: 20,
+            height: 20,
+          ),
         ),
         IconButton(
           onPressed: () {},
