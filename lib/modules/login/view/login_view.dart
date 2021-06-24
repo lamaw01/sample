@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sample/global/shared/globalloding.dart';
-import 'package:sample/global/widgets/error_view.dart';
+import 'package:sample/global/shared/app_loading.dart';
+import 'package:sample/global/shared/error_view.dart';
 import 'package:sample/modules/login/controller/login_controller.dart';
 
 class LoginView extends StatelessWidget {

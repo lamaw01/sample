@@ -1,19 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:sample/core/services/location_service.dart';
 import 'package:sample/global/configs/app_colors.dart';
-import 'package:sample/global/shared/coloredsafeare.dart';
+import 'package:sample/global/shared/colored_safeare.dart';
 import 'package:sample/modules/account/view/account_view.dart';
 import 'package:sample/modules/bottomnav/controller/bottomnav_controller.dart';
+import 'package:sample/modules/bottomnav/widget/drawer_widget.dart';
 import 'package:sample/modules/login/view/login_view.dart';
 import 'package:sample/modules/map/view/map_view.dart';
 import 'package:sample/modules/menu/view/menu_view.dart';
+import 'package:sample/services/location_service.dart';
 
 class BottomNavWidget extends StatelessWidget {
   BottomNavWidget({Key? key}) : super(key: key);
 
   static final controller = Get.put(BottomNavController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+      () => ColoredSafeArea(
+        color: AppColors.mainColor,
+        child: Scaffold(
+          appBar: _appBars[controller.tabIndex.value],
+          drawer: AppDrawer(),
+          body: _bodyList[controller.tabIndex.value],
+          bottomNavigationBar: BottomNavigationBar(
+            unselectedItemColor: Colors.grey[800],
+            selectedItemColor: AppColors.mainColor,
+            onTap: controller.changeTabIndex,
+            currentIndex: controller.tabIndex.value,
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
+            type: BottomNavigationBarType.shifting,
+            backgroundColor: Colors.white,
+            elevation: 1,
+            items: _buttonList,
+          ),
+        ),
+      ),
+    );
+  }
 
   final List<Widget> _bodyList = [
     LoginView(),
@@ -23,6 +50,7 @@ class BottomNavWidget extends StatelessWidget {
   ];
 
   final List _appBars = [
+    //Home Appbar
     AppBar(
       title: Text('Home'),
       actions: [
@@ -42,6 +70,7 @@ class BottomNavWidget extends StatelessWidget {
         ),
       ],
     ),
+    //Map Appbar
     AppBar(
       title: Text('Map'),
       actions: [
@@ -73,6 +102,7 @@ class BottomNavWidget extends StatelessWidget {
         ],
       ),
     ),
+    //Map Account
     AppBar(
       title: Text('Account'),
       actions: [
@@ -84,34 +114,9 @@ class BottomNavWidget extends StatelessWidget {
         )
       ],
     ),
+    //Menu null
     null,
   ];
-
-  Drawer _drawer() {
-    return Drawer(
-      child: ListView(
-        children: [
-          UserAccountsDrawerHeader(
-            accountName: Text('Botox Yamate'),
-            accountEmail: Text('botox@gmail.com'),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: FlutterLogo(),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.settings, color: Colors.black),
-            title: Text('Settings'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.logout, color: Colors.black),
-            title: Text('Logout'),
-          ),
-        ],
-      ),
-    );
-  }
 
   final List<BottomNavigationBarItem> _buttonList = [
     BottomNavigationBarItem(
@@ -131,30 +136,4 @@ class BottomNavWidget extends StatelessWidget {
       label: 'Menu',
     ),
   ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Obx(
-      () => ColoredSafeArea(
-        color: AppColors.mainColor,
-        child: Scaffold(
-          appBar: _appBars[controller.tabIndex.value],
-          drawer: _drawer(),
-          body: _bodyList[controller.tabIndex.value],
-          bottomNavigationBar: BottomNavigationBar(
-            unselectedItemColor: Colors.grey[800],
-            selectedItemColor: AppColors.mainColor,
-            onTap: controller.changeTabIndex,
-            currentIndex: controller.tabIndex.value,
-            // showSelectedLabels: false,
-            // showUnselectedLabels: false,
-            type: BottomNavigationBarType.shifting,
-            backgroundColor: Colors.white,
-            elevation: 1,
-            items: _buttonList,
-          ),
-        ),
-      ),
-    );
-  }
 }
