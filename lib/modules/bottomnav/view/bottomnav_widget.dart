@@ -8,6 +8,7 @@ import 'package:sample/modules/account/view/account_view.dart';
 import 'package:sample/modules/bottomnav/controller/bottomnav_controller.dart';
 import 'package:sample/modules/login/view/login_view.dart';
 import 'package:sample/modules/map/view/map_view.dart';
+import 'package:sample/modules/menu/view/menu_view.dart';
 
 class BottomNavWidget extends StatelessWidget {
   BottomNavWidget({Key? key}) : super(key: key);
@@ -18,9 +19,10 @@ class BottomNavWidget extends StatelessWidget {
     LoginView(),
     MapView(),
     AccountView(),
+    MenuView(),
   ];
 
-  final List<AppBar> _appBars = [
+  final List _appBars = [
     AppBar(
       title: Text('Home'),
       actions: [
@@ -82,6 +84,7 @@ class BottomNavWidget extends StatelessWidget {
         )
       ],
     ),
+    null,
   ];
 
   Drawer _drawer() {
@@ -122,6 +125,10 @@ class BottomNavWidget extends StatelessWidget {
     BottomNavigationBarItem(
       icon: Icon(Icons.person),
       label: 'Account',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.menu),
+      label: 'Menu',
     ),
   ];
 
