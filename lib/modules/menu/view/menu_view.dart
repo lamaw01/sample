@@ -35,6 +35,7 @@ class MenuView extends StatelessWidget {
           bottom: ColoredTabBar(
             AppColors.mainColor,
             TabBar(
+              isScrollable: true,
               controller: controller.tabController,
               tabs: controller.tabs,
             ),

@@ -9,34 +9,34 @@ class MenuController extends GetxController with SingleGetTickerProviderMixin {
 
   final List<Tab> tabs = [
     Tab(
-      child: Text('0'),
+      child: Text('0fasfas'),
     ),
     Tab(
-      child: Text('1'),
+      child: Text('1asfasf'),
     ),
     Tab(
-      child: Text('2'),
+      child: Text('2zxczxc'),
     ),
     Tab(
-      child: Text('3'),
+      child: Text('3zxczxcxz'),
     ),
     Tab(
-      child: Text('4'),
+      child: Text('4jfgjgfjfg'),
     ),
     Tab(
-      child: Text('5'),
+      child: Text('5qweqweqw'),
     ),
     Tab(
-      child: Text('6'),
+      child: Text('6asfczxcz'),
     ),
     Tab(
-      child: Text('7'),
+      child: Text('7cvnvbbbg'),
     ),
     Tab(
-      child: Text('8'),
+      child: Text('8mvbhngf'),
     ),
     Tab(
-      child: Text('9'),
+      child: Text('9klghjfgvb'),
     ),
   ];
 
