@@ -6,11 +6,12 @@ import 'package:sample/global/widgets/colored_tabbar.dart';
 import 'package:sample/modules/menu/controller/menu_controller.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-class MenuView extends StatelessWidget {
+class MenuView extends GetView<MenuController> {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    final controller = Get.put(MenuController());
+    // final controller = Get.put(MenuController());
+    Get.put(MenuController());
 
     return CustomScrollView(
       slivers: <Widget>[
@@ -40,6 +41,12 @@ class MenuView extends StatelessWidget {
               tabs: controller.tabs,
             ),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.star),
+            )
+          ],
         ),
         SliverFixedExtentList(
           itemExtent: 50,
