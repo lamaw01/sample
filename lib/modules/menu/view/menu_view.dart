@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample/global/configs/app_colors.dart';
 import 'package:sample/global/constants/asset_path.dart';
-import 'package:sample/global/widgets/colored_tabbar.dart';
+import 'package:sample/global/shared/colored_tabbar.dart';
 import 'package:sample/modules/menu/controller/menu_controller.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 

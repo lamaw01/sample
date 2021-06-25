@@ -5,7 +5,8 @@ import 'package:device_info/device_info.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:sample/core/services/model/andriod_model.dart';
+
+import 'model/andriod_model.dart';
 
 class StorageService extends GetxService {
   static StorageService instance = Get.find();

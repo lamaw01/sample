@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample/global/configs/app_colors.dart';
-import 'package:sample/global/shared/coloredsafeare.dart';
+import 'package:sample/global/shared/colored_safeare.dart';
 import 'package:sample/modules/splashscreen/controller/splashscreen_controller.dart';
 
 class SplashScreenView extends StatelessWidget {
