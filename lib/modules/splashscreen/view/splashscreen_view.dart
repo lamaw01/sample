@@ -11,11 +11,15 @@ class SplashScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _theme = Theme.of(context);
     return ColoredSafeArea(
       color: AppColors.backgroundColor,
       child: Scaffold(
         body: Center(
-          child: Text('Loading...'),
+          child: Text(
+            'Loading...',
+            style: _theme.textTheme.bodyText1,
+          ),
         ),
       ),
     );

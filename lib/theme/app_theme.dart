@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 // ignore: unused_import
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sample/global/configs/app_colors.dart';
 import 'package:sizer/sizer.dart';
 
 class AppTheme {
+  static final theme = Theme.of(Get.context!);
   static ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.mainColor,
     accentColor: AppColors.mainColor,
@@ -24,6 +26,7 @@ class AppTheme {
     fontFamily: 'Georgia',
     textTheme: TextTheme(
       caption: TextStyle(fontSize: 18.sp),
+      bodyText1: TextStyle(color: Colors.tealAccent),
     ),
   );
 }
